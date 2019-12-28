@@ -18,11 +18,11 @@ public class RegisterController {
 	@RequestMapping("/register")
 	public JSONObject register (User user) {
 		JSONObject result = new JSONObject();
-		
+		  
 		//调用service层
 		int i= registerService.register(user);
 		result.put("state",i);
-		
+		 
 		return result;
 	}
 	
