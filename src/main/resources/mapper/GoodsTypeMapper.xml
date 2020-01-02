@@ -8,6 +8,11 @@
         <result column="tName" property="tName" javaType="java.lang.String" jdbcType="VARCHAR"/>
         </resultMap>
         
+        <select id="selectGoodsTypeBytName"  parameterType="java.lang.String" resultMap="goodsType_result">
+        
+        select * from goodstype where tName = #{tName}
+        
+        </select>
         
         <insert id="insertGoodsType" parameterType="com.example.demo222.model.GoodsType">
         insert into goodstype
@@ -16,15 +21,12 @@
         (#{tID},#{tName})
         
         </insert>
-        <select id="selectGoodsTypeBytName"  parameterType="java.lang.String" resultMap="goodsType_result">
         
-        select * from goodstype where tName = #{tName}
-        
-        </select>
         <delete id="deleteGoodsType"  parameterType="com.example.demo222.model.GoodsType" >
         
          delete form goodstype where tName= #{tName}
         </delete>
+        
        <update id="updateGoodsType" parameterType="com.example.demo222.model.GoodsType" >
        update goodstype set tID=#{tID} where tName=#{tName}
        </update>

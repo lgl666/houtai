@@ -25,11 +25,15 @@ public class userController {
 	@RequestMapping("/updateUser")
 	public JSONObject updateMapper(User user) {
 		JSONObject result = new JSONObject();
+		int i=userService.updateUser(user);
+		result.put("state", i);
 		return result;
 	}
 	@RequestMapping("/deleteUser")
 	public JSONObject deleteUser(User user) {
 		JSONObject result = new JSONObject();
+		int i=userService.deleteUser(user);
+		result.put("state", i);
 		return result;
 }
 }
