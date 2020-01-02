@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+       <mapper namespace="com.example.demo222.mapper.GoodsMapper">
+       <resultMap type="com.example.demo222.model.Goods" id="goods_result">
+       <id column="gdID" property="gdID" javaType="java.lang.Integer"  jdbcType="INTEGER"/>
+       <result column="gdName" property="gdName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+       <result column="gdprice" property="gdPrice" javaType="java.lang.String" jdbcType="CHAR"/>
+       <result column="gdQuantity" property="gdQuantity" javaType="java.lang.String" jdbcType="VARCHAR"/>
+       <result column="gdSaleQty" property="gdSaleQty" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+       <result column="gdInfo" property="gdInfo"  javaType="java.lang.String" jdbcType="VARCHAR"/>
+       <result column="gdAddTime" property="gdAddTime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+       <result column="gdImage" property="gdImage" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result column="tID" property="tID" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+       </resultMap>
+       
+       <select id="selectGoodsBygdName" parameterType="java.lang.String" resultMap="goods_result">
+       select* from goods
+       where
+       gdName=#{gdName}
+       
+       </select>
+       <select id="selectAllGoods" resultType="com.example.demo222.model.Goods" >
+       select * from goods
+       </select>
+       
+       
+       <insert id="insertGoods" parameterType="com.example.demo222.model.Goods">
+       insert into goods
+       ({gdID,gdName,gdprice,gdQuantity,gdSaleQty,gdInfo,gdAddTime,gdImage,tID})
+       values
+       (#{gdID},#{gdName},#{gdprice},#{gdQuantity},#{gdSaleQty},#{gdInfo},#{gdAddTime},#{gdImage},#{tID})
+       
+       </insert>
+       <update id="updateGoods" parameterType="com.example.demo222.model.Goods">
+      update goods set gdID=#{gdID} where gdName=#{gdName}
+       
+       </update>
+       
+       <delete id="deleteGoods" parameterType="com.example.demo222.model.Goods"></delete>
+     
+       
+       </mapper>

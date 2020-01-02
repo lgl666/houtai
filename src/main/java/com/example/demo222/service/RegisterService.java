@@ -4,4 +4,5 @@ import com.example.demo222.model.User;
 
 public interface RegisterService {
 	public int  register(User user);
+	public int login(User user);
 }

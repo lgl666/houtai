@@ -27,5 +27,21 @@ public class RegisterServiceImpl  implements RegisterService{
 		return i;
 	}
 
+	@Override
+	public int login(User user) {
+		// TODO Auto-generated method stub
+		User u1 = registerMapper.selectUserByUsername(user.getUsername());
+		User u2 = registerMapper.selectUserByPassword(user.getPassword());
+		int i=-1;
+		if(u1==u2) {
+			i=-1;
+			System.out.println("登录成功");
+		}else {
+			i=-2;
+			System.out.println("用户名或密码错误");
+		}
+		return i;
+	}
+
 
 }

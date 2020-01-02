@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.example.demo222.mapper.GoodsTypeMapper">
+        <resultMap type="com.example.demo222.mapper.GoodsTypeMapper" id="goodsType_result">
+        <id column="tID" property="tID"  javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result column="tName" property="tName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </resultMap>
+        
+        
+        <insert id="insertGoodsType" parameterType="com.example.demo222.model.GoodsType">
+        insert into goodstype
+        (tID,tName)
+        values
+        (#{tID},#{tName})
+        
+        </insert>
+        <select id="selectGoodsTypeBytName"  parameterType="java.lang.String" resultMap="goodsType_result">
+        
+        select * from goodstype where tName = #{tName}
+        
+        </select>
+        <delete id="deleteGoodsType"  parameterType="com.example.demo222.model.GoodsType" >
+        
+         delete form goodstype where tName= #{tName}
+        </delete>
+       <update id="updateGoodsType" parameterType="com.example.demo222.model.GoodsType" >
+       update goodstype set tID=#{tID} where tName=#{tName}
+       </update>
+        
+        <select id="selectGoodsType"  resultType="com.example.demo222.model.GoodsType" >
+        select * from goodstype
+        
+        </select>
+        </mapper>
